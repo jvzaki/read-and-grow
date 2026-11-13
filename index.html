@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#204c3b">
+  <meta name="description" content="A quiet home for your books, reading habits, and the ideas you keep.">
+  <title>Read & Grow — Your reading companion</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="sidebar">
+    <a href="#dashboard" class="brand" aria-label="Read and Grow home"><span class="brand-mark" aria-hidden="true">r<span>&</span>g</span><span>Read & Grow<small>A LITTLE READING, EVERY DAY</small></span></a>
+    <div class="nav-label">YOUR READING SPACE</div>
+    <nav aria-label="Main navigation">
+      <a href="#dashboard" data-nav="dashboard"><span aria-hidden="true">◫</span> Dashboard</a>
+      <a href="#library" data-nav="library"><span aria-hidden="true">▤</span> My Library <span class="nav-count" id="library-count">0</span></a>
+      <a href="#log" data-nav="log"><span aria-hidden="true">＋</span> Log Reading</a>
+      <a href="#vault" data-nav="vault"><span aria-hidden="true">◇</span> Knowledge Vault</a>
+    </nav>
+    <div class="sidebar-bottom"><div class="sidebar-quote"><span class="sprout" aria-hidden="true">❧</span><p>Good books plant ideas.<br>Reflection helps them grow.</p></div><a href="#settings" data-nav="settings" class="settings-link"><span aria-hidden="true">⚙</span> Settings & backup</a><div class="local-note"><span class="status-dot"></span> Your space. Saved on this device.</div></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span id="breadcrumb">Your reading space <span>/</span> Dashboard</span><span class="topbar-note"><span class="status-dot"></span> A little progress goes a long way</span><a class="mobile-settings" href="#settings">Settings & backup</a></header>
+    <main id="main" tabindex="-1"></main>
+    <footer>Read & Grow <span>Don't just read. Retain, reflect, and apply.</span></footer>
+  </div>
+  <dialog id="book-dialog" aria-labelledby="book-dialog-title">
+    <form id="book-form"><div class="dialog-header"><div><div class="eyebrow">MAKE ROOM FOR A NEW IDEA</div><h2 id="book-dialog-title">Add a book</h2></div><button type="button" class="icon-button" data-close aria-label="Close dialog">×</button></div>
+      <input type="hidden" name="recordId">
+      <label>Book title <input name="title" required maxlength="200" placeholder="What are you reading?"></label>
+      <label>Author <input name="author" required maxlength="200" placeholder="Who wrote it?"></label>
+      <div class="form-grid"><label>Total pages <input name="total" type="number" min="1" max="1000000" step="1" required placeholder="e.g. 280"></label><label>Reading status <select name="status"><option value="want">Want to Read</option><option value="reading">Currently Reading</option><option value="finished">Finished</option></select></label></div>
+      <label>Cover image URL <span class="optional">optional</span><input name="cover" type="url" maxlength="2000" placeholder="https://…"></label><p class="field-help">No cover? We'll make a beautiful one for you.</p>
+      <p class="form-error" id="book-error" role="alert"></p><div class="form-actions"><button type="button" class="button secondary" data-close>Cancel</button><button class="button" type="submit">Save book <span aria-hidden="true">↗</span></button></div>
+    </form>
+  </dialog>
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title"><div class="dialog-header"><h2 id="confirm-title">Are you sure?</h2></div><p id="confirm-message"></p><div class="form-actions"><button class="button secondary" id="confirm-cancel">Cancel</button><button class="button danger" id="confirm-yes">Confirm</button></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
